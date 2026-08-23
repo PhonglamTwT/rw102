@@ -263,8 +263,10 @@ FROM account acc
 LEFT JOIN department dep ON acc.department_id = dep.department_id;
 
 -- Question 2: Viết lệnh để lấy ra thông tin các account được tạo sau ngày 20/12/2010  
-SELECT *
+SELECT acc.account_id, acc.email, acc.user_name, acc.full_name, dep.department_name, pos.position_name, acc.create_date
 FROM account acc
+LEFT JOIN department dep ON acc.department_id = dep.department_id
+LEFT JOIN position pos ON acc.position_id = pos.position_id
 WHERE acc.create_date > '2010-12-20';
 
 -- Question 3: Viết lệnh để lấy ra tất cả các developer  
@@ -308,7 +310,7 @@ GROUP BY que.question_id;
 -- Question 8: Lấy ra Question có nhiều câu trả lời nhất 
 SELECT que.question_id, que.content, count(ans.answer_id) AS 'So luong cau tra loi'
 FROM question que 
-JOIN answer ans ON que.question_id = ans.question_id
+LEFT JOIN answer ans ON que.question_id = ans.question_id
 GROUP BY que.question_id
 HAVING count(ans.answer_id) = (
 	SELECT count(ans.answer_id)
@@ -422,9 +424,9 @@ HAVING count(grp_acc.account_id) > 5;
 
 -- b) Lấy các group có nhỏ hơn 7 thành viên 
 SELECT grp.group_id, grp.group_name, count(grp_acc.account_id) AS 'SL thanh vien'
-FROM group_account grp_acc 
-JOIN `group` grp ON grp_acc.group_id = grp.group_id
-GROUP BY grp_acc.group_id 
+FROM `group` grp
+LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
+GROUP BY grp.group_id 
 HAVING count(grp_acc.account_id) < 7;
 
 -- c) Ghép 2 kết quả từ câu a) và câu b)
@@ -435,8 +437,8 @@ GROUP BY grp_acc.group_id
 HAVING count(grp_acc.account_id) > 5
 UNION ALL
 SELECT grp.group_id, grp.group_name, count(grp_acc.account_id)
-FROM group_account grp_acc 
-JOIN `group` grp ON grp_acc.group_id = grp.group_id
-GROUP BY grp_acc.group_id 
+FROM `group` grp
+LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
+GROUP BY grp.group_id 
 HAVING count(grp_acc.account_id) < 7;
 
