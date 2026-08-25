@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS Testing_System_Assignment_3;
-CREATE DATABASE Testing_System_Assignment_3;
-USE Testing_System_Assignment_3;
+DROP DATABASE IF EXISTS Testing_System_Assignment_4;
+CREATE DATABASE Testing_System_Assignment_4;
+USE Testing_System_Assignment_4;
 
 -- Table 1:Department  
 DROP TABLE IF EXISTS department;
@@ -257,194 +257,66 @@ SELECT * FROM answer;
 SELECT * FROM exam;
 SELECT * FROM exam_question;
 
--- Question 1: Viết lệnh để lấy ra danh sách nhân viên và thông tin phòng ban của họ 
-SELECT acc.account_id, acc.full_name, dep.department_name
-FROM account acc
-LEFT JOIN department dep ON acc.department_id = dep.department_id;
-
--- Question 2: Viết lệnh để lấy ra thông tin các account được tạo sau ngày 20/12/2010  
-SELECT acc.account_id, acc.email, acc.user_name, acc.full_name, dep.department_name, pos.position_name, acc.create_date
-FROM account acc
-LEFT JOIN department dep ON acc.department_id = dep.department_id
-LEFT JOIN position pos ON acc.position_id = pos.position_id
-WHERE acc.create_date > '2010-12-20';
-
--- Question 3: Viết lệnh để lấy ra tất cả các developer  
-SELECT acc.account_id, acc.full_name, pos.position_name
-FROM account acc
-JOIN position pos ON acc.position_id = pos.position_id
-WHERE pos.position_name = 'Dev';
-
--- Question 4: Viết lệnh để lấy ra danh sách các phòng ban có >3 nhân viên 
-SELECT dep.department_name, count(acc.account_id) AS 'SLNV'
-FROM account acc
+-- Question 1: Tạo view có chứa danh sách nhân viên thuộc phòng ban sale
+CREATE VIEW v_acc_sale AS
+SELECT acc.*, dep.department_name
+FROM account acc 
 JOIN department dep ON acc.department_id = dep.department_id
-GROUP BY dep.department_id
-HAVING count(acc.account_id) > 3;
+WHERE dep.department_name = 'Sale';
 
--- Question 5: Viết lệnh để lấy ra danh sách câu hỏi được sử dụng trong đề thi nhiều nhất 
-SELECT que.question_id, que.content, count(exa.exam_id) AS 'So luong su dung'
-FROM exam_question exa
-JOIN question que ON exa.question_id = que.question_id
-GROUP BY que.question_id
-HAVING count(exa.exam_id) = (
-	SELECT count(exa.exam_id)
-    FROM exam_question exa
-    GROUP BY exa.question_id
-	ORDER BY count(exa.exam_id) DESC
-    LIMIT 1
+-- Question 2: Tạo view có chứa thông tin các account tham gia vào nhiều group nhất
+CREATE VIEW v_acc_most_group AS
+WITH cte_acc_group AS (
+	SELECT acc.*, count(ga.group_id) AS group_count
+	FROM group_account ga
+	JOIN account acc ON ga.account_id = acc.account_id
+	GROUP BY ga.account_id
+)
+SELECT * 
+FROM cte_acc_group
+WHERE group_count = (
+	SELECT max(group_count)
+    FROM cte_acc_group
 );
 
--- Question 6: Thông kê mỗi category Question được sử dụng trong bao nhiêu Question 
-SELECT cat.category_id, cat.category_name, count(que.question_id) AS 'So luong question su dung'
-FROM category_question cat 
-LEFT JOIN question que ON cat.category_id = que.category_id
-GROUP BY cat.category_id;
-
--- Question 7: Thông kê mỗi Question được sử dụng trong bao nhiêu Exam 
-SELECT que.question_id, que.content, count(exa.exam_id) AS 'So luong duoc su dung trong exam'
-FROM question que
-LEFT JOIN exam_question exa ON que.question_id = exa.question_id
-GROUP BY que.question_id;
-
--- Question 8: Lấy ra Question có nhiều câu trả lời nhất 
-SELECT que.question_id, que.content, count(ans.answer_id) AS 'So luong cau tra loi'
+-- Question 3: Tạo view có chứa câu hỏi có những content quá dài (content quá 300 từ được coi là quá dài) và xóa nó đi
+CREATE VIEW v_long_question_content AS 
+SELECT que.*
 FROM question que 
-LEFT JOIN answer ans ON que.question_id = ans.question_id
-GROUP BY que.question_id
-HAVING count(ans.answer_id) = (
-	SELECT count(ans.answer_id)
-    FROM answer ans 
-    GROUP BY ans.question_id
-    ORDER BY count(ans.answer_id) DESC
-    LIMIT 1
+WHERE char_length(que.content) > 10;
+
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM exam_question eq WHERE question_id IN (
+	SELECT question_id 
+    FROM v_long_question_content
 );
 
--- Question 9: Thống kê số lượng account trong mỗi group  
-SELECT gro.group_id, gro.group_name, count(gro_acc.account_id) AS 'So luong account trong group'
-FROM `group` gro 
-LEFT JOIN group_account gro_acc ON gro.group_id = gro_acc.group_id
-GROUP BY gro.group_id;
-
--- Question 10: Tìm chức vụ có ít người nhất 
-SELECT pos.position_name, count(acc.account_id) AS 'So luong nguoi'
-FROM position pos 
-LEFT JOIN account acc ON pos.position_id = acc.position_id
-GROUP BY pos.position_id
-HAVING count(acc.account_id) = (
-	SELECT count(acc.account_id)
-	FROM position pos 
-	LEFT JOIN account acc ON pos.position_id = acc.position_id
-	GROUP BY pos.position_id 
-	ORDER BY count(acc.account_id) ASC
-	LIMIT 1
+DELETE FROM answer ans WHERE ans.question_id IN (
+	SELECT question_id 
+    FROM v_long_question_content
 );
 
--- Question 11: Thống kê mỗi phòng ban có bao nhiêu dev, test, scrum master, PM  
-SELECT 	dep.department_name, 
-		count(CASE WHEN pos.position_name = 'Dev' THEN 1 END) AS 'Dev',
-        count(CASE WHEN pos.position_name = 'Test' THEN 1 END) AS 'Test',
-        count(CASE WHEN pos.position_name = 'Scrum Master' THEN 1 END) AS 'Scrum Master',
-        count(CASE WHEN pos.position_name = 'PM' THEN 1 END) AS 'PM'
-FROM department dep
-LEFT JOIN account acc ON dep.department_id = acc.department_id
-LEFT JOIN position pos ON pos.position_id = acc.position_id
-GROUP BY dep.department_id;
- 
--- Question 12: Lấy thông tin chi tiết của câu hỏi bao gồm: thông tin cơ bản của question, loại câu hỏi, ai là người tạo ra câu hỏi, câu trả lời là gì, …
-SELECT ques.question_id, ques.content, cat.category_name, typ.type_name, ans.content, acc.full_name, ques.create_date
-FROM question ques 
-LEFT JOIN answer ans ON ans.question_id = ques.question_id
-LEFT JOIN category_question cat ON cat.category_id = ques.category_id
-LEFT JOIN type_question typ ON typ.type_id = ques.type_id
-LEFT JOIN account acc ON acc.account_id = ques.creator_id;
+DELETE FROM v_long_question_content;
 
--- Question 13: Lấy ra số lượng câu hỏi của mỗi loại tự luận hay trắc nghiệm 
-SELECT typ.type_name, count(que.question_id) AS 'SL cau hoi'
-FROM type_question typ 
-LEFT JOIN question que ON typ.type_id = que.type_id
-GROUP BY typ.type_id;
+-- Question 4: Tạo view có chứa danh sách các phòng ban có nhiều nhân viên nhất
+CREATE VIEW v_department_most_acc AS
+WITH cte_department_count_acc AS (
+	SELECT dep.*, count(acc.account_id) AS SLNV
+    FROM department dep 
+    JOIN account acc ON dep.department_id = acc.department_id
+    GROUP BY dep.department_id
+)
+SELECT *
+FROM cte_department_count_acc WHERE SLNV = (
+	SELECT max(SLNV)
+    FROM cte_department_count_acc
+);
 
--- Question 14:Lấy ra group không có account nào 
-SELECT gro.group_name, count(grp_acc.account_id) AS 'SL account'
-FROM `group` gro
-LEFT JOIN group_account grp_acc ON gro.group_id = grp_acc.group_id
-GROUP BY gro.group_id
-HAVING count(grp_acc.account_id) = 0;
+-- Question 5: Tạo view có chứa tất các các câu hỏi do user họ Nguyễn tạo
+CREATE VIEW v_question_nguyen AS
+SELECT que.*
+FROM question que 
+JOIN account acc ON que.creator_id = acc.account_id
+WHERE acc.full_name LIKE 'Nguyễn%';
 
--- Ngắn hơn
-SELECT g.*
-FROM `Group` g
-LEFT JOIN GroupAccount ga ON g.GroupID = ga.GroupID
-WHERE ga.AccountID IS NULL;
-
--- Question 15: Lấy ra group không có account nào 
-SELECT gro.group_name, count(grp_acc.account_id) AS 'SL account'
-FROM `group` gro
-LEFT JOIN group_account grp_acc ON gro.group_id = grp_acc.group_id
-GROUP BY gro.group_id
-HAVING count(grp_acc.account_id) = 0;
-
--- Question 16: Lấy ra question không có answer nào 
-SELECT ques.question_id, ques.content
-FROM question ques
-LEFT JOIN answer ans ON ques.question_id = ans.question_id
-GROUP BY ques.question_id
-HAVING count(ans.answer_id) = 0;
-
--- Question 17:  
--- a) Lấy các account thuộc nhóm thứ 1 
-SELECT grp.group_name, acc.account_id, acc.email, acc.user_name, acc.full_name
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-LEFT JOIN account acc ON grp_acc.account_id = acc.account_id
-WHERE grp.group_id = 1;
-
--- b) Lấy các account thuộc nhóm thứ 2
-SELECT grp.group_name, acc.account_id, acc.email, acc.user_name, acc.full_name
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-LEFT JOIN account acc ON grp_acc.account_id = acc.account_id
-WHERE grp.group_id = 2;
-
--- c) Ghép 2 kết quả từ câu a) và câu b) sao cho không có record nào trùng nhau 
-SELECT grp.group_name, acc.account_id, acc.email, acc.user_name, acc.full_name
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-LEFT JOIN account acc ON grp_acc.account_id = acc.account_id
-WHERE grp.group_id = 1
-UNION
-SELECT grp.group_name, acc.account_id, acc.email, acc.user_name, acc.full_name
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-LEFT JOIN account acc ON grp_acc.account_id = acc.account_id
-WHERE grp.group_id = 2;
-
--- Question 18:  
--- a) Lấy các group có lớn hơn 5 thành viên 
-SELECT grp.group_id, grp.group_name, count(grp_acc.account_id) AS 'SL thanh vien'
-FROM group_account grp_acc 
-JOIN `group` grp ON grp_acc.group_id = grp.group_id
-GROUP BY grp_acc.group_id 
-HAVING count(grp_acc.account_id) > 5;
-
--- b) Lấy các group có nhỏ hơn 7 thành viên 
-SELECT grp.group_id, grp.group_name, count(grp_acc.account_id) AS 'SL thanh vien'
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-GROUP BY grp.group_id 
-HAVING count(grp_acc.account_id) < 7;
-
--- c) Ghép 2 kết quả từ câu a) và câu b)
-SELECT grp.group_id, grp.group_name, count(grp_acc.account_id) AS 'SL thanh vien'
-FROM group_account grp_acc 
-JOIN `group` grp ON grp_acc.group_id = grp.group_id
-GROUP BY grp_acc.group_id 
-HAVING count(grp_acc.account_id) > 5
-UNION ALL
-SELECT grp.group_id, grp.group_name, count(grp_acc.account_id)
-FROM `group` grp
-LEFT JOIN group_account grp_acc ON grp.group_id = grp_acc.group_id
-GROUP BY grp.group_id 
-HAVING count(grp_acc.account_id) < 7;
 
