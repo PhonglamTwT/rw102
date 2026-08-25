@@ -373,10 +373,10 @@ GROUP BY gro.group_id
 HAVING count(grp_acc.account_id) = 0;
 
 -- Ngắn hơn
-SELECT g.*
-FROM `Group` g
-LEFT JOIN GroupAccount ga ON g.GroupID = ga.GroupID
-WHERE ga.AccountID IS NULL;
+-- SELECT g.*
+-- FROM `Group` g
+-- LEFT JOIN GroupAccount ga ON g.GroupID = ga.GroupID
+-- WHERE ga.AccountID IS NULL;
 
 -- Question 15: Lấy ra group không có account nào 
 SELECT gro.group_name, count(grp_acc.account_id) AS 'SL account'
