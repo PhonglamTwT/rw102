@@ -32,22 +32,27 @@ public class AccountServiceImpl implements IAccountService {
     }
 
     @Override
-    public boolean deleteByUsername(String username) {
-        return repository.deleteByUsername(username);
+    public boolean deleteById(int id) {
+        return repository.deleteById(id);
     }
 
     @Override
-    public boolean updateFullNameByUsername(String username, String newFullName) {
-        return repository.updateFullNameByUsername(username, newFullName);
+    public boolean updateUsernameById(int id, String newUsername) {
+        return repository.updateUsernameById(id, newUsername);
     }
 
     @Override
-    public List<Department> findAllDepartments() {
-        return repository.findAllDepartments();
+    public boolean existsById(int id) {
+        return repository.existsById(id);
     }
 
     @Override
-    public List<Position> findAllPositions() {
-        return repository.findAllPositions();
+    public boolean existsByUsername(String username) {
+        return repository.existsByUsername(username);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return repository.existsByEmail(email);
     }
 }

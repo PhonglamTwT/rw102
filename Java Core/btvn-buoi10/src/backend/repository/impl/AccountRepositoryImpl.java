@@ -120,14 +120,66 @@ public class AccountRepositoryImpl implements IAccountRepository {
     }
 
     @Override
-    public boolean deleteByUsername(String username) {
-        String sql = "DELETE FROM `account` WHERE username = ?";
+    public boolean deleteById(int id) {
+        String sql = "DELETE FROM `account` WHERE account_id = ?";
+        try {
+            Connection conn = JDBCUtils.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateUsernameById(int id, String newUsername) {
+        String sql = "UPDATE `account` SET username = ? WHERE account_id = ?";
+        try {
+            Connection conn = JDBCUtils.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, newUsername);
+            stmt.setInt(2, id);
+
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existsById(int id) {
+        String sql = "SELECT 1 FROM `account` WHERE account_id = ?";
+        try {
+            Connection conn = JDBCUtils.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeConnection();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        String sql = "SELECT 1 FROM `account` WHERE username = ?";
         try {
             Connection conn = JDBCUtils.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
-
-            return stmt.executeUpdate() > 0;
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -137,61 +189,19 @@ public class AccountRepositoryImpl implements IAccountRepository {
     }
 
     @Override
-    public boolean updateFullNameByUsername(String username, String newFullName) {
-        String sql = "UPDATE `account` SET full_name = ? WHERE username = ?";
+    public boolean existsByEmail(String email) {
+        String sql = "SELECT 1 FROM `account` WHERE email = ?";
         try {
             Connection conn = JDBCUtils.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, newFullName);
-            stmt.setString(2, username);
-
-            return stmt.executeUpdate() > 0;
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             JDBCUtils.closeConnection();
         }
         return false;
-    }
-
-    @Override
-    public List<Department> findAllDepartments() {
-        List<Department> departments = new ArrayList<>();
-        String sql = "SELECT * FROM `department`";
-        try {
-            Connection conn = JDBCUtils.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                departments.add(new Department(rs.getInt("department_id"), rs.getString("department_name")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtils.closeConnection();
-        }
-        return departments;
-    }
-
-    @Override
-    public List<Position> findAllPositions() {
-        List<Position> positions = new ArrayList<>();
-        String sql = "SELECT * FROM `position`";
-        try {
-            Connection conn = JDBCUtils.getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                int id = rs.getInt("position_id");
-                String nameStr = rs.getString("position_name");
-                PositionName pName = (nameStr != null) ? PositionName.valueOf(nameStr) : null;
-                positions.add(new Position(id, pName));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            JDBCUtils.closeConnection();
-        }
-        return positions;
     }
 }

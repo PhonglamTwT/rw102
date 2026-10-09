@@ -27,19 +27,23 @@ public class AccountController {
         return accountService.create(email, username, fullName, depId, posId);
     }
 
-    public boolean deleteByUsername(String username) {
-        return accountService.deleteByUsername(username);
+    public boolean deleteById(int id) {
+        return accountService.deleteById(id);
     }
 
-    public boolean updateFullNameByUsername(String username, String newFullName) {
-        return accountService.updateFullNameByUsername(username, newFullName);
+    public boolean updateUsernameById(int id, String newUsername) {
+        return accountService.updateUsernameById(id, newUsername);
     }
 
-    public List<Department> findAllDepartments() {
-        return accountService.findAllDepartments();
+    public boolean existsById(int id) {
+        return accountService.existsById(id);
     }
 
-    public List<Position> findAllPositions() {
-        return accountService.findAllPositions();
+    public boolean existsByUsername(String username) {
+        return accountService.existsByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return accountService.existsByEmail(email);
     }
 }
