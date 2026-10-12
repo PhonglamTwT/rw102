@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d878c2cc-ae58-46d8-bbba-4bfe81099f98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/DepartmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/PositionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IAccountRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IDepartmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IPositionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/AccountRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/DepartmentRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/PositionRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IAccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IDepartmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IPositionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/AccountServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/DepartmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/PositionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Department.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/PositionName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/Function.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/JDBCUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.8579251852455278E-238" />
+      <entry key="MS500" value="5.3562776914741454E-48" />
+      <entry key="S2" value="2.5576609802730417E-12" />
+      <entry key="S5" value="3.561504597235254E-5" />
+      <entry key="S10" value="0.010435490111288363" />
+      <entry key="S30" value="0.8924555533584865" />
+      <entry key="S60" value="3.2672838764028382" />
+      <entry key="M2" value="6.451783643139169" />
+      <entry key="M5" value="9.79968667802037" />
+      <entry key="M10" value="11.282604542122051" />
+      <entry key="M15" value="11.827241662208992" />
+      <entry key="M30" value="12.399233825898396" />
+      <entry key="H1" value="12.695928572124531" />
+      <entry key="H2" value="12.84703049059168" />
+      <entry key="H4" value="12.923280315970363" />
+      <entry key="D1" value="12.987180630482829" />
+      <entry key="W1" value="12.998167857667674" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000070107489278" />
+      <entry key="S2" value="1.0514566019930212" />
+      <entry key="S5" value="1.3052217874281398" />
+      <entry key="S10" value="1.5588949468868907" />
+      <entry key="S30" value="2.2464735625080103" />
+      <entry key="S60" value="3.336540527859253" />
+      <entry key="M2" value="4.735329294199142" />
+      <entry key="M5" value="6.313089514855171" />
+      <entry key="M10" value="7.0697313169517395" />
+      <entry key="M15" value="7.358174347788987" />
+      <entry key="M30" value="7.6675938626505555" />
+      <entry key="H1" value="7.830789328510669" />
+      <entry key="H2" value="7.91462517351545" />
+      <entry key="H4" value="7.957117962728889" />
+      <entry key="D1" value="7.992825769085944" />
+      <entry key="W1" value="7.998974440600634" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.0016768856180424871" />
+      <entry key="MS500" value="0.27854848251439995" />
+      <entry key="S2" value="0.7427372164539594" />
+      <entry key="S5" value="1.0725511008058914" />
+      <entry key="S10" value="1.3924104622851121" />
+      <entry key="S30" value="3.0230161805732148" />
+      <entry key="S60" value="6.4990080443194955" />
+      <entry key="M2" value="11.104389378627312" />
+      <entry key="M5" value="16.066172529131936" />
+      <entry key="M10" value="18.325835147144197" />
+      <entry key="M15" value="19.16694054918096" />
+      <entry key="M30" value="20.057157780836" />
+      <entry key="H1" value="20.52176925543627" />
+      <entry key="H2" value="20.759152175793243" />
+      <entry key="H4" value="20.87913914782517" />
+      <entry key="D1" value="20.979795510286564" />
+      <entry key="W1" value="20.997112145794432" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="3KZYrfCLvQpalE6tY6Ae2RCXkTd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Program.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/welcome/OneDrive/Desktop/rw102/Java Core/btvn-buoi12/src/main/java",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\welcome\OneDrive\Desktop\rw102\Java Core\btvn-buoi12\src\main\java" />
+      <recent name="C:\Users\welcome\OneDrive\Desktop\rw102\Java Core\btvn-buoi12\src\main\java\org\example" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d878c2cc-ae58-46d8-bbba-4bfe81099f98" name="Changes" comment="" />
+      <created>1791766760131</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1791766760131</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
