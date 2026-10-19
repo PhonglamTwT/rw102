@@ -50,4 +50,8 @@ public class AccountController {
     public boolean existsByEmail(String email) {
         return accountService.existsByEmail(email);
     }
+
+    public String importCSV(String path) {
+        return accountService.importCSV(path);
+    }
 }

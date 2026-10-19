@@ -16,4 +16,5 @@ public interface IAccountRepository {
     boolean existsByUsername(String username);
     boolean existsByUsernameAndIdNot(String username, int id);
     boolean existsByEmail(String email);
+    void createAll(List<Account> accounts);
 }

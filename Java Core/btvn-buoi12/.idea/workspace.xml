@@ -5,35 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d878c2cc-ae58-46d8-bbba-4bfe81099f98" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/controller/PositionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IAccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IDepartmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IPositionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/AccountRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/DepartmentRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/PositionRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IAccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IDepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/IPositionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/AccountServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/PositionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/PositionName.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/Function.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/frontend/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/JDBCUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/repository/IAccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/IAccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/repository/impl/AccountRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/impl/AccountRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/IAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/impl/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/impl/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/frontend/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/frontend/Function.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,95 +24,95 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.8579251852455278E-238" />
-      <entry key="MS500" value="5.3562776914741454E-48" />
-      <entry key="S2" value="2.5576609802730417E-12" />
-      <entry key="S5" value="3.561504597235254E-5" />
-      <entry key="S10" value="0.010435490111288363" />
-      <entry key="S30" value="0.8924555533584865" />
-      <entry key="S60" value="3.2672838764028382" />
-      <entry key="M2" value="6.451783643139169" />
-      <entry key="M5" value="9.79968667802037" />
-      <entry key="M10" value="11.282604542122051" />
-      <entry key="M15" value="11.827241662208992" />
-      <entry key="M30" value="12.399233825898396" />
-      <entry key="H1" value="12.695928572124531" />
-      <entry key="H2" value="12.84703049059168" />
-      <entry key="H4" value="12.923280315970363" />
-      <entry key="D1" value="12.987180630482829" />
-      <entry key="W1" value="12.998167857667674" />
+      <entry key="MS100" value="1.4286050403889742E-75" />
+      <entry key="MS500" value="1.0739460494180028E-15" />
+      <entry key="S2" value="1.877184488006736E-4" />
+      <entry key="S5" value="0.05316393909814269" />
+      <entry key="S10" value="0.5023066108234726" />
+      <entry key="S30" value="2.61806578005942" />
+      <entry key="S60" value="4.141136763089974" />
+      <entry key="M2" value="5.3196137076274805" />
+      <entry key="M5" value="6.380471410545553" />
+      <entry key="M10" value="8.166514298785593" />
+      <entry key="M15" value="10.791827703673267" />
+      <entry key="M30" value="18.50174832828493" />
+      <entry key="H1" value="27.420009299162974" />
+      <entry key="H2" value="34.41349795772471" />
+      <entry key="H4" value="38.82650492896043" />
+      <entry key="D1" value="43.079344894045335" />
+      <entry key="W1" value="43.86696813793353" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000070107489278" />
-      <entry key="S2" value="1.0514566019930212" />
-      <entry key="S5" value="1.3052217874281398" />
-      <entry key="S10" value="1.5588949468868907" />
-      <entry key="S30" value="2.2464735625080103" />
-      <entry key="S60" value="3.336540527859253" />
-      <entry key="M2" value="4.735329294199142" />
-      <entry key="M5" value="6.313089514855171" />
-      <entry key="M10" value="7.0697313169517395" />
-      <entry key="M15" value="7.358174347788987" />
-      <entry key="M30" value="7.6675938626505555" />
-      <entry key="H1" value="7.830789328510669" />
-      <entry key="H2" value="7.91462517351545" />
-      <entry key="H4" value="7.957117962728889" />
-      <entry key="D1" value="7.992825769085944" />
-      <entry key="W1" value="7.998974440600634" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000217523039807" />
+      <entry key="S5" value="1.0138984654654133" />
+      <entry key="S10" value="1.142412687472006" />
+      <entry key="S30" value="2.1466980665806252" />
+      <entry key="S60" value="3.2786500985697615" />
+      <entry key="M2" value="4.330061985621041" />
+      <entry key="M5" value="5.290883981630031" />
+      <entry key="M10" value="6.241703360459275" />
+      <entry key="M15" value="7.408207442884987" />
+      <entry key="M30" value="10.75878928408046" />
+      <entry key="H1" value="14.660540061597771" />
+      <entry key="H2" value="17.74447893442508" />
+      <entry key="H4" value="19.699784073599538" />
+      <entry key="D1" value="21.59007690361753" />
+      <entry key="W1" value="21.940752290043136" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0016768856180424871" />
-      <entry key="MS500" value="0.27854848251439995" />
-      <entry key="S2" value="0.7427372164539594" />
-      <entry key="S5" value="1.0725511008058914" />
-      <entry key="S10" value="1.3924104622851121" />
-      <entry key="S30" value="3.0230161805732148" />
-      <entry key="S60" value="6.4990080443194955" />
-      <entry key="M2" value="11.104389378627312" />
-      <entry key="M5" value="16.066172529131936" />
-      <entry key="M10" value="18.325835147144197" />
-      <entry key="M15" value="19.16694054918096" />
-      <entry key="M30" value="20.057157780836" />
-      <entry key="H1" value="20.52176925543627" />
-      <entry key="H2" value="20.759152175793243" />
-      <entry key="H4" value="20.87913914782517" />
-      <entry key="D1" value="20.979795510286564" />
-      <entry key="W1" value="20.997112145794432" />
+      <entry key="MS100" value="2.3382428225778023E-8" />
+      <entry key="MS500" value="0.029769937438873056" />
+      <entry key="S2" value="0.4154464148106712" />
+      <entry key="S5" value="0.7496392456539422" />
+      <entry key="S10" value="1.3878315990052303" />
+      <entry key="S30" value="4.518826091602311" />
+      <entry key="S60" value="7.220373970533149" />
+      <entry key="M2" value="9.514917065043873" />
+      <entry key="M5" value="11.603894356362465" />
+      <entry key="M10" value="14.36589220120422" />
+      <entry key="M15" value="18.165055236288147" />
+      <entry key="M30" value="29.2343804131793" />
+      <entry key="H1" value="42.06285317717339" />
+      <entry key="H2" value="52.147385142884374" />
+      <entry key="H4" value="58.52045265292055" />
+      <entry key="D1" value="64.66836317008017" />
+      <entry key="W1" value="65.80756693489549" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3KZYrfCLvQpalE6tY6Ae2RCXkTd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Program.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/welcome/OneDrive/Desktop/rw102/Java Core/btvn-buoi12/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Program.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/welcome/OneDrive/Desktop/rw102/Java Core/btvn-buoi12/src/main/java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\welcome\OneDrive\Desktop\rw102\Java Core\btvn-buoi12\src\main\java" />

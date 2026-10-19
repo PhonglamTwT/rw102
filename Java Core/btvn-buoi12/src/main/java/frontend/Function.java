@@ -248,20 +248,20 @@ public class Function {
     }
 
     private void inBangAccount(List<Account> accounts) {
-        System.out.println("+----+----------------------+-----------------+---------------------+---------------------+------------------+------------+");
-        System.out.printf("|%-4s|%-22s|%-17s|%-21s|%-21s|%-18s|%-12s|\n",
+        System.out.println("+----+------------------------------+-----------------+---------------------+---------------------+------------------+------------+");
+        System.out.printf("|%-4s|%-30s|%-17s|%-21s|%-21s|%-18s|%-12s|\n",
                 "ID", "Email", "Username", "Full Name", "Department", "Position", "Create Date");
-        System.out.println("+----+----------------------+-----------------+---------------------+---------------------+------------------+------------+");
+        System.out.println("+----+------------------------------+-----------------+---------------------+---------------------+------------------+------------+");
         for (Account acc : accounts) {
             String depName = (acc.getDepartment() != null && acc.getDepartment().getDepartmentName() != null)
                     ? acc.getDepartment().getDepartmentName() : "";
             String posName = (acc.getPosition() != null && acc.getPosition().getPositionName() != null)
                     ? acc.getPosition().getPositionName().name() : "";
 
-            System.out.printf("|%-4d|%-22s|%-17s|%-21s|%-21s|%-18s|%-12s|\n",
+            System.out.printf("|%-4d|%-30s|%-17s|%-21s|%-21s|%-18s|%-12s|\n",
                     acc.getAccountId(), acc.getEmail(), acc.getUsername(), acc.getFullName(), depName, posName, acc.getCreateDate());
         }
-        System.out.println("+----+----------------------+-----------------+---------------------+---------------------+------------------+------------+");
+        System.out.println("+----+------------------------------+-----------------+---------------------+---------------------+------------------+------------+");
     }
 
     private void inBangDepartment(List<Department> departments) {
@@ -283,14 +283,15 @@ public class Function {
             System.out.println("3. Thêm mới account");
             System.out.println("4. Xóa account theo ID");
             System.out.println("5. Update username theo ID");
+            System.out.println("6. Import CSV");
             System.out.println("--- QUẢN LÝ DEPARTMENT ---");
-            System.out.println("6. Hiển thị department");
-            System.out.println("7. Tìm kiếm department theo tên");
-            System.out.println("8. Thêm mới department");
-            System.out.println("9. Xóa department theo id");
-            System.out.println("10. Update tên phòng ban theo id");
-            System.out.println("11. Thoát");
-            System.out.print("Lựa chọn của bạn (1 - 11): ");
+            System.out.println("7. Hiển thị department");
+            System.out.println("8. Tìm kiếm department theo tên");
+            System.out.println("9. Thêm mới department");
+            System.out.println("10. Xóa department theo id");
+            System.out.println("11. Update tên phòng ban theo id");
+            System.out.println("12. Thoát");
+            System.out.print("Lựa chọn của bạn (1 - 12): ");
 
             String choice = sc.nextLine().trim();
             switch (choice) {
@@ -299,17 +300,27 @@ public class Function {
                 case "3": this.themMoiAccount(); break;
                 case "4": this.xoaAccountTheoId(); break;
                 case "5": this.updateUsernameTheoId(); break;
-                case "6": this.hienThiDepartment(); break;
-                case "7": this.timKiemDepartmentTheoTen(); break;
-                case "8": this.themMoiDepartment(); break;
-                case "9": this.xoaDepartmentTheoId(); break;
-                case "10": this.updateTenPhongBanTheoId(); break;
-                case "11":
+                case "6": this.importCSV(); break;
+                case "7": this.hienThiDepartment(); break;
+                case "8": this.timKiemDepartmentTheoTen(); break;
+                case "9": this.themMoiDepartment(); break;
+                case "10": this.xoaDepartmentTheoId(); break;
+                case "11": this.updateTenPhongBanTheoId(); break;
+                case "12":
                     System.out.println("Thoát chương trình!");
                     System.exit(0);
                 default:
                     System.out.println("Lựa chọn không hợp lệ, vui lòng chọn từ 1 đến 11!");
             }
         }
+    }
+
+    private void importCSV() {
+        System.out.println("\n==== IMPORT ACCOUNT TỪ FILE CSV ====");
+        System.out.print("Nhập đường dẫn file CSV: ");
+        String path = sc.nextLine().trim();
+
+        String result = accountController.importCSV(path);
+        System.out.println(result);
     }
 }

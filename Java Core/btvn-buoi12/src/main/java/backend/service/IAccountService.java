@@ -16,5 +16,5 @@ public interface IAccountService {
     boolean existsByUsername(String username);
     boolean existsByUsernameAndIdNot(String username, int id);
     boolean existsByEmail(String email);
-
+    String importCSV(String path);
 }
