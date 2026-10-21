@@ -1,0 +1,11 @@
+email,username,full_name,department_id,position_id,create_date,error_messages
+giaphong.lam@gmail.com,giaphong99,Lâm Gia Phong,1,1,2026-10-19,Email đã tồn tại-Username đã tồn tại
+hoangnam.tran@gmail.com,hoangnam01,Trần Hoàng Nam,1,2,2026-10-18,Email đã tồn tại-Username đã tồn tại
+minhanh.nguyen@gmail.com,minhanh02,Nguyễn Minh Anh,2,1,2026-10-17,Email đã tồn tại-Username đã tồn tại
+quanghuy.le@gmail.com,quanghuy03,Lê Quang Huy,2,3,2026-10-16,Email đã tồn tại-Username đã tồn tại
+thuha.pham@gmail.com,thuha04,Phạm Thu Hà,3,2,2026-10-15,Email đã tồn tại-Username đã tồn tại
+ducanh.vu@gmail.com,ducanh05,Vũ Đức Anh,3,4,2026-10-14,Email đã tồn tại-Username đã tồn tại
+baongoc.do@gmail.com,baongoc06,Đỗ Bảo Ngọc,4,1,2026-10-13,Email đã tồn tại-Username đã tồn tại
+tuankiet.hoang@gmail.com,tuankiet07,Hoàng Tuấn Kiệt,4,3,2026-10-12,Email đã tồn tại-Username đã tồn tại
+phuongthao.dang@gmail.com,phuongthao08,Đặng Phương Thảo,5,2,2026-10-11,Email đã tồn tại-Username đã tồn tại
+dinhkhoa.bui@gmail.com,dinhkhoa09,Bùi Đình Khoa,5,4,2026-10-10,Email đã tồn tại-Username đã tồn tại
